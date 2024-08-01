@@ -23,9 +23,7 @@ The Todo List Application is a simple and intuitive task management tool designe
 - Mark tasks as completed
 - Search for tasks
 - Filter tasks based on their status (all, completed, pending)
-- Drag and drop tasks to reorder
 - Responsive design
-- Light and dark mode
   
 ## Demo
 
