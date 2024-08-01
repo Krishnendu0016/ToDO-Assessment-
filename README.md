@@ -25,7 +25,12 @@ The Todo List Application is a simple and intuitive task management tool designe
 - Drag and drop tasks to reorder
 - Responsive design
 - Light and dark mode
+  
+## Demo
 
+You can view a live demo of the application at the following link:
+
+[Live Demo](https://to-do-assessment.vercel.app/)
 ## Technologies Used
 
 - **Frontend**: React, Next.js, React Icons
