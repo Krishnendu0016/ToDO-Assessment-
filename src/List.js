@@ -4,37 +4,38 @@ import { useGlobalContext } from "./context";
 import Task from "./Task";
 
 const List = ({ tasks }) => {
-  const { filter } = useGlobalContext();
+  const { filter } = useGlobalContext(); // Get the filter value from global context
 
-  let filteredTasks = [...tasks];
+  let filteredTasks = [...tasks]; // Start with a copy of all tasks
 
+  // Filter tasks based on the current filter value
   switch (filter) {
     case "all":
-      filteredTasks = [...tasks];
+      filteredTasks = [...tasks]; // Show all tasks
       break;
     case "completed":
-      filteredTasks = tasks.filter((task) => task.completed);
+      filteredTasks = tasks.filter((task) => task.completed); // Show only completed tasks
       break;
     case "uncompleted":
-      filteredTasks = tasks.filter((task) => !task.completed);
+      filteredTasks = tasks.filter((task) => !task.completed); // Show only uncompleted tasks
       break;
     default:
-      filteredTasks = [...tasks];
+      filteredTasks = [...tasks]; // Default to showing all tasks
       break;
   }
 
   return (
-    <Droppable droppableId='droppable-1'>
+    <Droppable droppableId='droppable-1'> {/* Define the droppable area for drag-and-drop */}
       {(provided, snapshot) => (
         <ul
-          className='tasks-wrapper'
-          ref={provided.innerRef}
-          {...provided.droppableProps}
+          className='tasks-wrapper'  // Styling for the list of tasks
+          ref={provided.innerRef}    // Reference to the droppable area
+          {...provided.droppableProps} // Spread droppableProps to enable drag-and-drop functionality
         >
           {filteredTasks.map((task, i) => (
-            <Task key={task.id} {...task} index={i} />
+            <Task key={task.id} {...task} index={i} /> // Render each task, passing down necessary props
           ))}
-          {provided.placeholder}
+          {provided.placeholder} {/* Placeholder to handle drag-and-drop spacing */}
         </ul>
       )}
     </Droppable>

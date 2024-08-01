@@ -1,65 +1,83 @@
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500&display=swap");
 
+/* Default CSS Variables */
 :root {
-	--bg-color: #94d8e3;
-	--alt-bg-color: #0000004d;
-	--font-color: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: #607d8b;
-	--secondary-color: #93B5C6;
+	--bg-color: #94d8e3; /* Background color for light mode */
+	--alt-bg-color: #0000004d; /* Alternate background color */
+	--font-color: #ffffff; /* Font color for light mode */
+	--alt-font-color: #222222; /* Alternate font color */
+	--primary-color: #607d8b; /* Primary color for buttons and accents */
+	--secondary-color: #93B5C6; /* Secondary color for filters */
 }
+
+/* Dark mode CSS Variables */
 .dark {
-	--bg-color: #003950;
-	--alt-bg-color: #0000004d;
-	--font-color: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: #008e9f;
-	--secondary-color: #00e4ff;
+	--bg-color: #003950; /* Background color for dark mode */
+	--alt-bg-color: #0000004d; /* Alternate background color */
+	--font-color: #ffffff; /* Font color for dark mode */
+	--alt-font-color: #222222; /* Alternate font color */
+	--primary-color: #008e9f; /* Primary color for dark mode */
+	--secondary-color: #00e4ff; /* Secondary color for dark mode */
 }
+
+/* Global Reset and Box Sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body Styling */
 body {
   min-height: 100vh;
-  background: var(--bg-color);
-  color: var(--font-color);
-  font-family: "Nunito", sans-serif;
-  padding: 80px 0;
+  background: var(--bg-color); /* Uses background color from variables */
+  color: var(--font-color); /* Uses font color from variables */
+  font-family: "Nunito", sans-serif; /* Sets font family */
+  padding: 80px 0; /* Vertical padding */
   position: relative;
   font-size: 100%;
-  transition: all 0.3s linear;
+  transition: all 0.3s linear; /* Smooth transition for color changes */
 }
+
+/* Container Styling */
 .container {
   width: 80%;
   max-width: 900px;
   padding: 30px;
   margin: 0 auto;
-  background: var(--alt-bg-color);
+  background: var(--alt-bg-color); /* Uses alternate background color */
   border-radius: 20px;
   text-align: center;
-  box-shadow: 0 0 20px 0px #00000045;
+  box-shadow: 0 0 20px 0px #00000045; /* Box shadow for container */
 }
+
+/* Responsive Container Styling */
 @media (max-width: 768px) {
   .container {
     padding: 20px;
     width: 90%;
   }
 }
+
+/* Header Styling inside Container */
 .container .head {
   width: 100%;
   display: grid;
-  grid-template-columns: 70% 29%;
+  grid-template-columns: 70% 29%; /* Grid layout for header */
   gap: 1%;
   margin-bottom: 50px;
 }
+
+/* Responsive Header Styling */
 @media (max-width: 768px) {
   .container .head {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack input and button vertically */
     gap: 5px;
   }
 }
+
+/* Input Styling in Header */
 .head input {
   padding: 13px 20px;
   outline: none;
@@ -69,27 +87,35 @@ body {
   font-size: 0.9rem;
   font-family: inherit;
 }
+
+/* Button Styling */
 button {
   cursor: pointer;
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Uses primary color */
   padding: 10px 30px;
   border-radius: 10px;
   border: none;
   font-size: 0.9rem;
   font-weight: 500;
   font-family: inherit;
-  color: var(--font-color);
-  transition: all 0.3s ease;
+  color: var(--font-color); /* Uses font color */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
 }
+
+/* Button Hover Effect */
 button:hover {
-  opacity: 0.7;
+  opacity: 0.7; /* Slight opacity change on hover */
 }
+
+/* Search Box Styling */
 .search {
   margin: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* Search Input Styling */
 .search input {
   padding: 10px 20px;
   outline: none;
@@ -101,6 +127,8 @@ button:hover {
   width: 100%;
   max-width: 400px;
 }
+
+/* Filter Button Styling */
 .filter {
   margin: 0 auto 40px;
   display: flex;
@@ -108,56 +136,74 @@ button:hover {
   align-items: center;
   gap: 5px;
 }
+
+/* Responsive Filter Button Styling */
 @media (max-width: 576px) {
   .filter {
-    flex-direction: column;
+    flex-direction: column; /* Stack filter buttons vertically */
   }
 }
+
+/* Active Filter Button Styling */
 .filter button.active {
-  background-color: var(--secondary-color);
+  background-color: var(--secondary-color); /* Highlight active filter */
   color: #333;
 }
+
+/* Task List Wrapper Styling */
 .tasks-wrapper {
   list-style: none;
   padding: 0 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: var(--font-color);
+  color: var(--font-color); /* Uses font color */
   max-height: 400px;
-  overflow-y: auto;
+  overflow-y: auto; /* Scrollbar for overflow */
 }
+
+/* Responsive Task List Wrapper Styling */
 @media (max-width: 768px) {
   .tasks-wrapper {
     padding: 0 5px;
     gap: 5px;
   }
 }
+
+/* Task Item Styling */
 .task {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Uses primary color */
   padding: 4px 20px 5px 30px;
   border-radius: 10px;
   display: flex;
   gap: 5px;
   align-items: center;
   text-align: left;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease; /* Smooth transition for hover effect */
 }
+
+/* Task Content Styling */
 .task-content {
   flex: 1;
 }
+
+/* Task Content Paragraph Styling */
 .task-content p {
   font-size: 1rem;
   text-transform: capitalize;
 }
+
+/* Task Content Small Text Styling */
 .task-content small {
   display: block;
   font-size: 0.8rem;
   opacity: 0.7;
 }
+
+/* Task Button Styling */
 .task button {
   background-color: transparent;
-  color: var(--alt-font-color);
+  color: var(--alt-font-color); /* Uses alternate font color */
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -167,28 +213,40 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 0.7s;
+  transition: 0.7s; /* Smooth transition for hover effect */
 }
+
+/* Task Button Hover Effect */
 .task button:hover {
-  color: var(--primary-color);
-  background-color: var(--alt-font-color);
+  color: var(--primary-color); /* Change color on hover */
+  background-color: var(--alt-font-color); /* Change background on hover */
   opacity: 0.85;
   border-radius: 10px;
 }
+
+/* Styling for Completed Tasks */
 .tasks-wrapper .task-done {
   opacity: 0.5;
 }
+
+/* Styling for Completed Task Text */
 .tasks-wrapper .task-done p {
-  text-decoration: line-through;
+  text-decoration: line-through; /* Strikethrough completed task */
   font-style: italic;
 }
+
+/* Button for Deleting All Tasks */
 button.btn-delete-all {
   margin-top: 50px;
-  background-color: #ba0f30;
+  background-color: #ba0f30; /* Red color for delete button */
 }
+
+/* No Tasks Message Styling */
 .no-tasks {
-  color: var(--font-color);
+  color: var(--font-color); /* Uses font color */
 }
+
+/* Alert Box Styling */
 .alert {
   margin-bottom: 1rem;
   width: 230px;
@@ -197,49 +255,61 @@ button.btn-delete-all {
   align-items: center;
   text-align: center;
   font-size: 0.9rem;
-  color: var(--alt-font-color);
+  color: var(--alt-font-color); /* Uses alternate font color */
   border-radius: 0.25rem;
   letter-spacing: var(--spacing);
   text-transform: capitalize;
   background: #eee;
   position: absolute;
   bottom: 0;
-  left: -100%;
-  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
-  box-shadow: 0 0 20px 0px #00000045;
+  left: -100%; /* Hide alert initially */
+  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05); /* Smooth transition for visibility */
+  box-shadow: 0 0 20px 0px #00000045; /* Box shadow for alert */
 }
+
+/* Color Picker Container Styling */
 .color-container {
   position: absolute;
   width: 100px;
   height: 80px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Grid layout for color options */
   background: #eee;
   padding: 3px;
   gap: 3px;
   border-radius: 10px;
   z-index: 3;
 }
+
+/* Color Picker Options Styling */
 .color-container > span {
   border-radius: 5px;
 }
+
+/* Custom Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 0.5rem;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: #00b3b3;
   outline: 0px inset #7fffd4;
   border-radius: 10px;
   height: 50px;
 }
+
+/* Prevent Clicks on Elements */
 .preventClick {
   pointer-events: none;
 }
+
+/* Footer Styling */
 .footer {
   position: absolute;
   bottom: 0;
@@ -247,6 +317,8 @@ button.btn-delete-all {
   text-align: center;
   margin: 10px auto;
 }
+
+/* GitHub Icon Styling */
 .github {
   font-size: 2rem;
   color: darkcyan;
