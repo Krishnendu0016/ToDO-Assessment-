@@ -7,6 +7,7 @@ import Alert from "./Alert";
 import { useGlobalContext } from "./context";
 
 const App = () => {
+  // Destructure values and functions from global context
   const {
     inputRef,
     tasks,
@@ -21,54 +22,60 @@ const App = () => {
     setName,
     filter,
     setFilter,
-    isColorsOpen,
     setIsColorsOpen,
     searchQuery,
     setSearchQuery,
   } = useGlobalContext();
 
+  // Function to add or edit a task
   const addTask = (e) => {
     e.preventDefault();
     if (!name) {
-      showAlert(true, "Invalid Task Name!");
+      showAlert(true, "Invalid Task Name!"); // Alert for invalid task name
     } else if (name && isEditing) {
+      // Edit existing task
       setTasks(
-        tasks.map((task) => {
-          return task.id === editId ? { ...task, name: name, updated: new Date().toLocaleString() } : task;
-        })
+        tasks.map((task) =>
+          task.id === editId ? { ...task, name: name, updated: new Date().toLocaleString() } : task
+        )
       );
       setIsEditing(false);
       setEditId(null);
       setName("");
-      showAlert(true, "Task Edited.");
+      showAlert(true, "Task Edited."); // Alert for task edited
     } else {
+      // Add new task
       const newTask = {
-        id: uuid().slice(0, 8),
+        id: uuid().slice(0, 8), // Generate unique ID
         name: name,
         completed: false,
         color: "#009688",
         updated: new Date().toLocaleString(),
       };
       setTasks([...tasks, newTask]);
-      showAlert(true, "Task Added.");
+      showAlert(true, "Task Added."); // Alert for task added
       setName("");
     }
   };
 
+  // Function to handle filtering tasks
   const filterTasks = (e) => {
     setFilter(e.target.dataset["filter"]);
   };
 
+  // Function to delete all tasks
   const deleteAll = () => {
     setTasks([]);
-    showAlert(true, "Your list is clear!");
+    showAlert(true, "Your list is clear!"); // Alert for clearing all tasks
   };
 
+  // Effect to focus input field and store tasks in localStorage
   useEffect(() => {
     inputRef.current.focus();
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [inputRef, tasks]);
 
+  // Function to handle drag and drop reordering of tasks
   const handleDragEnd = (param) => {
     const srcI = param.source.index;
     const desI = param.destination?.index;
@@ -79,15 +86,18 @@ const App = () => {
     }
   };
 
+  // Function to hide color picker container when clicking outside of it
   const hideColorsContainer = (e) => {
     if (e.target.classList.contains("btn-colors")) return;
     setIsColorsOpen(false);
   };
 
+  // Function to handle search input
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
   };
 
+  // Filter tasks based on search query
   const filteredTasks = tasks.filter((task) =>
     task.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -95,7 +105,7 @@ const App = () => {
   return (
     <>
       <div className='container' onClick={hideColorsContainer}>
-        {isColorsOpen}
+        {/* Display alert if present */}
         {alert && <Alert msg={alert.msg} />}
         <form className='head' onSubmit={addTask}>
           <input
@@ -156,7 +166,10 @@ const App = () => {
         )}
       </div>
       <div className="footer">
-        <a href='https://github.com/Krishnendu0016' target='_blank' rel="noopener noreferrer"><FaGithub className='github' /></a>
+        {/* Link to GitHub profile */}
+        <a href='https://github.com/Krishnendu0016' target='_blank' rel="noopener noreferrer">
+          <FaGithub className='github' />
+        </a>
       </div>
     </>
   );

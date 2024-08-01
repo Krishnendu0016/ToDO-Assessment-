@@ -1,253 +1,323 @@
+/* Importing the Nunito font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500&display=swap");
 
+/* Default theme colors */
 :root {
-	--bg-color: #94d8e3;
-	--alt-bg-color: #0000004d;
-	--font-color: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: #607d8b;
-	--secondary-color: #93B5C6;
+	--bg-color: #94d8e3; /* Background color */
+	--alt-bg-color: #0000004d; /* Alternative background color */
+	--font-color: #ffffff; /* Font color */
+	--alt-font-color: #222222; /* Alternative font color */
+	--primary-color: #607d8b; /* Primary color for buttons and other elements */
+	--secondary-color: #93B5C6; /* Secondary color for active filters */
 }
+
+/* Dark theme colors */
 .dark {
-	--bg-color: #003950;
-	--alt-bg-color: #0000004d;
-	--font-color: #ffffff;
-	--alt-font-color: #222222;
-	--primary-color: #008e9f;
-	--secondary-color: #00e4ff;
+	--bg-color: #003950; /* Background color for dark theme */
+	--alt-bg-color: #0000004d; /* Alternative background color for dark theme */
+	--font-color: #ffffff; /* Font color for dark theme */
+	--alt-font-color: #222222; /* Alternative font color for dark theme */
+	--primary-color: #008e9f; /* Primary color for dark theme */
+	--secondary-color: #00e4ff; /* Secondary color for dark theme */
 }
+
+/* Reset margins and paddings for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Body styling */
 body {
-  min-height: 100vh;
-  background: var(--bg-color);
-  color: var(--font-color);
-  font-family: "Nunito", sans-serif;
-  padding: 80px 0;
+  min-height: 100vh; /* Full viewport height */
+  background: var(--bg-color); /* Background color */
+  color: var(--font-color); /* Font color */
+  font-family: "Nunito", sans-serif; /* Font family */
+  padding: 80px 0; /* Padding for body */
   position: relative;
   font-size: 100%;
-  transition: all 0.3s linear;
+  transition: all 0.3s linear; /* Smooth transition for theme changes */
 }
+
+/* Container styling */
 .container {
-  width: 80%;
-  max-width: 900px;
-  padding: 30px;
-  margin: 0 auto;
-  background: var(--alt-bg-color);
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 20px 0px #00000045;
+  width: 80%; /* Container width */
+  max-width: 900px; /* Maximum width */
+  padding: 30px; /* Padding inside the container */
+  margin: 0 auto; /* Centering the container */
+  background: var(--alt-bg-color); /* Background color */
+  border-radius: 20px; /* Rounded corners */
+  text-align: center; /* Center align text */
+  box-shadow: 0 0 20px 0px #00000045; /* Shadow effect */
 }
+
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .container {
-    padding: 20px;
-    width: 90%;
+    padding: 20px; /* Reduced padding */
+    width: 90%; /* Wider container */
   }
 }
+
+/* Header styling within the container */
 .container .head {
   width: 100%;
-  display: grid;
-  grid-template-columns: 70% 29%;
-  gap: 1%;
-  margin-bottom: 50px;
+  display: grid; /* Grid layout */
+  grid-template-columns: 70% 29%; /* Column widths */
+  gap: 1%; /* Gap between columns */
+  margin-bottom: 50px; /* Bottom margin */
 }
+
+/* Responsive design for smaller screens in the header */
 @media (max-width: 768px) {
   .container .head {
-    grid-template-columns: 1fr;
-    gap: 5px;
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 5px; /* Increased gap */
   }
 }
+
+/* Input field styling within the header */
 .head input {
-  padding: 13px 20px;
-  outline: none;
-  border: none;
-  background-color: #eee;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-family: inherit;
+  padding: 13px 20px; /* Padding inside input field */
+  outline: none; /* Remove default outline */
+  border: none; /* Remove border */
+  background-color: #eee; /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 0.9rem; /* Font size */
+  font-family: inherit; /* Inherit font family */
 }
+
+/* Button styling */
 button {
-  cursor: pointer;
-  background-color: var(--primary-color);
-  padding: 10px 30px;
-  border-radius: 10px;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-family: inherit;
-  color: var(--font-color);
-  transition: all 0.3s ease;
+  cursor: pointer; /* Pointer cursor on hover */
+  background-color: var(--primary-color); /* Background color */
+  padding: 10px 30px; /* Padding inside button */
+  border-radius: 10px; /* Rounded corners */
+  border: none; /* Remove border */
+  font-size: 0.9rem; /* Font size */
+  font-weight: 500; /* Font weight */
+  font-family: inherit; /* Inherit font family */
+  color: var(--font-color); /* Font color */
+  transition: all 0.3s ease; /* Smooth transition */
 }
+
+/* Button hover effect */
 button:hover {
-  opacity: 0.7;
+  opacity: 0.7; /* Reduced opacity on hover */
 }
+
+/* Search input styling */
 .search {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 20px 0; /* Margin for search */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center align */
+  align-items: center; /* Center align items */
 }
+
+/* Search input field styling */
 .search input {
-  padding: 10px 20px;
-  outline: none;
-  border: none;
-  background-color: #eee;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-family: inherit;
-  width: 100%;
-  max-width: 400px;
+  padding: 10px 20px; /* Padding inside input field */
+  outline: none; /* Remove default outline */
+  border: none; /* Remove border */
+  background-color: #eee; /* Background color */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 0.9rem; /* Font size */
+  font-family: inherit; /* Inherit font family */
+  width: 100%; /* Full width */
+  max-width: 400px; /* Maximum width */
 }
+
+/* Filter button container styling */
 .filter {
-  margin: 0 auto 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
+  margin: 0 auto 40px; /* Margin */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center align */
+  align-items: center; /* Center align items */
+  gap: 5px; /* Gap between buttons */
 }
+
+/* Responsive design for smaller screens in filter */
 @media (max-width: 576px) {
   .filter {
-    flex-direction: column;
+    flex-direction: column; /* Column layout */
   }
 }
+
+/* Active filter button styling */
 .filter button.active {
-  background-color: var(--secondary-color);
-  color: #333;
+  background-color: var(--secondary-color); /* Background color */
+  color: #333; /* Font color */
 }
+
+/* Task list styling */
 .tasks-wrapper {
-  list-style: none;
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  color: var(--font-color);
-  max-height: 400px;
-  overflow-y: auto;
+  list-style: none; /* Remove list bullets */
+  padding: 0 50px; /* Padding inside list */
+  display: flex; /* Flexbox layout */
+  flex-direction: column; /* Column layout */
+  gap: 20px; /* Gap between tasks */
+  color: var(--font-color); /* Font color */
+  max-height: 400px; /* Maximum height */
+  overflow-y: auto; /* Scrollbar for overflow */
 }
+
+/* Responsive design for smaller screens in task list */
 @media (max-width: 768px) {
   .tasks-wrapper {
-    padding: 0 5px;
-    gap: 5px;
+    padding: 0 5px; /* Reduced padding */
+    gap: 5px; /* Reduced gap */
   }
 }
+
+/* Individual task styling */
 .task {
-  background-color: var(--primary-color);
-  padding: 4px 20px 5px 30px;
-  border-radius: 10px;
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  text-align: left;
-  transition: all 0.5s ease;
+  background-color: var(--primary-color); /* Background color */
+  padding: 4px 20px 5px 30px; /* Padding inside task */
+  border-radius: 10px; /* Rounded corners */
+  display: flex; /* Flexbox layout */
+  gap: 5px; /* Gap between elements */
+  align-items: center; /* Center align items */
+  text-align: left; /* Left align text */
+  transition: all 0.5s ease; /* Smooth transition */
 }
+
+/* Task content styling */
 .task-content {
-  flex: 1;
+  flex: 1; /* Flex-grow */
 }
+
+/* Task content paragraph styling */
 .task-content p {
-  font-size: 1rem;
-  text-transform: capitalize;
+  font-size: 1rem; /* Font size */
+  text-transform: capitalize; /* Capitalize text */
 }
+
+/* Task content small text styling */
 .task-content small {
-  display: block;
-  font-size: 0.8rem;
-  opacity: 0.7;
+  display: block; /* Block display */
+  font-size: 0.8rem; /* Font size */
+  opacity: 0.7; /* Reduced opacity */
 }
+
+/* Button inside task styling */
 .task button {
-  background-color: transparent;
-  color: var(--alt-font-color);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  padding: 0;
-  font-weight: bold;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.7s;
+  background-color: transparent; /* Transparent background */
+  color: var(--alt-font-color); /* Font color */
+  width: 40px; /* Width */
+  height: 40px; /* Height */
+  border-radius: 50%; /* Circular shape */
+  padding: 0; /* Remove padding */
+  font-weight: bold; /* Bold font weight */
+  font-size: 1rem; /* Font size */
+  display: flex; /* Flexbox layout */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center align content */
+  transition: 0.7s; /* Smooth transition */
 }
+
+/* Button hover effect inside task */
 .task button:hover {
-  color: var(--primary-color);
-  background-color: var(--alt-font-color);
-  opacity: 0.85;
-  border-radius: 10px;
+  color: var(--primary-color); /* Font color on hover */
+  background-color: var(--alt-font-color); /* Background color on hover */
+  opacity: 0.85; /* Reduced opacity on hover */
+  border-radius: 10px; /* Rounded corners on hover */
 }
+
+/* Styling for completed tasks */
 .tasks-wrapper .task-done {
-  opacity: 0.5;
+  opacity: 0.5; /* Reduced opacity */
 }
+
+/* Styling for completed task text */
 .tasks-wrapper .task-done p {
-  text-decoration: line-through;
-  font-style: italic;
+  text-decoration: line-through; /* Line-through text decoration */
+  font-style: italic; /* Italic font style */
 }
+
+/* Styling for delete all button */
 button.btn-delete-all {
-  margin-top: 50px;
-  background-color: #ba0f30;
+  margin-top: 50px; /* Top margin */
+  background-color: #ba0f30; /* Background color */
 }
+
+/* No tasks message styling */
 .no-tasks {
-  color: var(--font-color);
+  color: var(--font-color); /* Font color */
 }
+
+/* Alert box styling */
 .alert {
-  margin-bottom: 1rem;
-  width: 230px;
-  height: 80px;
-  display: grid;
-  align-items: center;
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--alt-font-color);
-  border-radius: 0.25rem;
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-  background: #eee;
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05);
-  box-shadow: 0 0 20px 0px #00000045;
+  margin-bottom: 1rem; /* Bottom margin */
+  width: 230px; /* Width */
+  height: 80px; /* Height */
+  display: grid; /* Grid layout */
+  align-items: center; /* Center align items */
+  text-align: center; /* Center align text */
+  font-size: 0.9rem; /* Font size */
+  color: var(--alt-font-color); /* Font color */
+  border-radius: 0.25rem; /* Rounded corners */
+  letter-spacing: var(--spacing); /* Letter spacing */
+  text-transform: capitalize; /* Capitalize text */
+  background: #eee; /* Background color */
+  position: absolute; /* Absolute positioning */
+  bottom: 0; /* Bottom alignment */
+  left: -100%; /* Hide off-screen initially */
+  transition: all 0.5s cubic-bezier(0.6, -0.28, 0.74, 0.05); /* Smooth transition */
+  box-shadow: 0 0 20px 0px #00000045; /* Shadow effect */
 }
+
+/* Color container styling for color picker */
 .color-container {
-  position: absolute;
-  width: 100px;
-  height: 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  background: #eee;
-  padding: 3px;
-  gap: 3px;
-  border-radius: 10px;
-  z-index: 3;
+  position: absolute; /* Absolute positioning */
+  width: 100px; /* Width */
+  height: 80px; /* Height */
+  display: grid; /* Grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  background: #eee; /* Background color */
+  padding: 3px; /* Padding inside container */
+  gap: 3px; /* Gap between colors */
+  border-radius: 10px; /* Rounded corners */
+  z-index: 3; /* Ensure it is above other elements */
 }
+
+/* Styling for color picker items */
 .color-container > span {
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners */
 }
+
+/* Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 0.5rem;
-  border-radius: 10px;
+  width: 0.5rem; /* Scrollbar width */
+  border-radius: 10px; /* Rounded corners */
 }
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); /* Inner shadow */
+  border-radius: 10px; /* Rounded corners */
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #00b3b3;
-  outline: 0px inset #7fffd4;
-  border-radius: 10px;
-  height: 50px;
+  background-color: #00b3b3; /* Scrollbar thumb color */
+  outline: 0px inset #7fffd4; /* Outline color */
+  border-radius: 10px; /* Rounded corners */
+  height: 50px; /* Thumb height */
 }
+
+/* Prevent click events for elements with this class */
 .preventClick {
-  pointer-events: none;
+  pointer-events: none; /* Disable pointer events */
 }
+
+/* Footer styling */
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  margin: 10px auto;
+  position: absolute; /* Absolute positioning */
+  bottom: 0; /* Bottom alignment */
+  width: 100%; /* Full width */
+  text-align: center; /* Center align text */
+  margin: 10px auto; /* Margin for footer */
 }
+
+/* GitHub icon styling */
 .github {
-  font-size: 2rem;
-  color: darkcyan;
+  font-size: 2rem; /* Font size */
+  color: darkcyan; /* Font color */
 }
