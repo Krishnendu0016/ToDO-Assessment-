@@ -1,15 +1,14 @@
-import React from "react";          // Import React library
-import ReactDOM from "react-dom";   // Import ReactDOM for rendering
-import "./index.css";              // Import global CSS styles
-import App from "./App";            // Import the main App component
-import { AppProvider } from "./context";  // Import context provider for global state
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import { AppProvider } from "./context";
 
-// Render the application
 ReactDOM.render(
-  <React.StrictMode>   {/* Enables additional checks and warnings for React components */}
-    <AppProvider>      {/* Provides global state to the App component */}
-      <App />         {/* Main application component */}
+  <React.StrictMode>
+    <AppProvider>
+      <App />
     </AppProvider>
   </React.StrictMode>,
-  document.getElementById("root") 
+  document.getElementById("root")
 );

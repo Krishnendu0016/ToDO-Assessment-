@@ -9,35 +9,37 @@ import { FiEdit } from "react-icons/fi";
 import { useGlobalContext } from "./context";
 
 const Task = ({ id, name, completed, color, index, updated }) => {
-  const { removeTask, toggleDone, editTask } = useGlobalContext(); // Extract functions from context
+  const { removeTask, toggleDone, editTask } = useGlobalContext();
 
   return (
     <Draggable key={id} draggableId={"draggable-" + id} index={index}>
       {(provided, snapshot) => (
         <li
-          ref={provided.innerRef}  // Reference to the draggable item
-          {...provided.draggableProps}  // Spread draggableProps for drag-and-drop functionality
-          {...provided.dragHandleProps}  // Spread dragHandleProps for handle styling
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
           style={{
-            ...provided.draggableProps.style,  // Apply default draggable styles
-            boxShadow: snapshot.isDragging ? "0 0 5rem #666" : "none",  // Add shadow when dragging
-            opacity: snapshot.isDragging ? "1" : provided.draggableProps.style.opacity,  // Adjust opacity when dragging
-            backgroundColor: color,  // Set background color of the task
+            ...provided.draggableProps.style,
+            boxShadow: snapshot.isDragging ? "0 0 5rem #666" : "none",
+            opacity: snapshot.isDragging
+              ? "1"
+              : provided.draggableProps.style.opacity,
+            backgroundColor: color,
           }}
-          className={`task ${completed ? "task-done" : ""}`}  // Apply 'task-done' class if task is completed
+          className={`task ${completed && "task-done"}`}
         >
           <div className="task-content">
-            <p>{name}</p>  // Display task name
-            <small>Last updated: {updated}</small>  // Display last updated timestamp
+            <p>{name}</p>
+            <small>Last updated: {updated}</small>
           </div>
           <div className="task-actions">
-            <button onClick={() => toggleDone(id)}>  {/* Toggle task completion */}
-              {completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}  {/* Display checked or unchecked icon */}
+            <button onClick={() => toggleDone(id)}>
+              {completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
             </button>
-            <button onClick={() => removeTask(id)}>  {/* Remove task */}
+            <button onClick={() => removeTask(id)}>
               <MdDeleteOutline />
             </button>
-            <button onClick={() => editTask(id)}>  {/* Edit task */}
+            <button onClick={() => editTask(id)}>
               <FiEdit />
             </button>
           </div>
