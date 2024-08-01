@@ -7,7 +7,6 @@
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 
@@ -41,13 +40,13 @@ To run this project locally, follow these steps:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/
+    git clone https://github.com/Krishnendu0016/ToDO-Assessment-.git
     ```
 
 2. **Navigate to the project directory**:
 
     ```bash
-    cd todo
+    cd ToDO-Assessment-
     ```
 
 3. **Install the dependencies**:
