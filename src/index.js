@@ -6,10 +6,9 @@ import { AppProvider } from "./context"; // Import the context provider
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* Wrap the App component with AppProvider to provide context */}
     <AppProvider>
       <App />
     </AppProvider>
   </React.StrictMode>,
-  document.getElementById("root") // Render the App component inside the root element
+  document.getElementById("root") 
 );
